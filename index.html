@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    const root = document.getElementById("root");
+    
+    //기존 방식
+    // const h3 = React.createElement(
+    // "h3", 
+    // // {class : "sexy-span" , style: {color:'blue'}},
+    // {
+    //     onMouseEnter: () => console.log("mouse enter"),
+    // },
+    // "Total clicks : 0"
+    // );
+
+    //JSX 방식 (기본 function)
+    function Title() {
+        return (
+            <h3 
+                id="title" 
+                onMouseEnter= {() => console.log("mouse enter")}
+            >
+                Total clicks : 0
+            </h3>
+        );
+    }
+
+    //JSX 방식 (arrow function)
+    // const Title = () => (
+    // <h3 
+    //     id="title" 
+    //     onMouseEnter= {() => console.log("mouse enter")}>
+    //     Total clicks : 0
+    // </h3>
+    // );
+
+    //기존 방식
+    // const btn = React.createElement(
+    //     //element 영역
+    //     "button", 
+    // {
+    //     //props=property 영역
+    //     class : "click-btn", 
+    //     onClick : () => console.log('I `m clicked'),
+    //     style : {
+    //         backgroundColor : "orange",
+    //     }
+    // }, 
+    // //argument 영역
+    // "Click me"
+    // );
+
+    //JSX 방식 (arrow 방식)
+    const Btn = () => (
+        <button 
+            class="click-btn" 
+            onClick = {() => console.log('I `m clicked')} 
+            style={{backgroundColor:"orange"}}
+        >
+            Click me
+        </button>
+        );
+    // h3 와 btn 컴포넌트 2개가 존재 , 기존 방식
+    // const container = React.createElement(
+    // "div",
+    // null,
+    // [Title, btn]
+    // );
+
+    //JSX 방식
+    const Container = 
+        <div>
+            <Title />
+            <Btn />
+        </div>
+
+    //render의 의미는 사용자에게 보여준다. span을 root안에 render 해달라는 의미
+    ReactDOM.render(Container, root);
+</script>
+
+</html>
