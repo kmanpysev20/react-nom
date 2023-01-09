@@ -89,14 +89,15 @@
     // );
 
     //JSX 방식
-    const Container = 
+    const Container = () => (
         <div>
             <Title />
             <Btn />
         </div>
+        );
 
     //render의 의미는 사용자에게 보여준다. span을 root안에 render 해달라는 의미
-    ReactDOM.render(Container, root);
+    ReactDOM.render(<Container/>, root);
 </script>
 
 </html>
